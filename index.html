@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Baby - الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">البصرة_شارع السعدي </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="categories.html">الأصناف والبضائع</a></li>
+                <li>
+                    <button class="cart-btn" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i> السلة
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>مرحباً بكم في متجر New Baby</h1>
+        <p>كل ما يحتاجه طفلك والأم في مكان واحد</p>
+    </section>
+
+    <div class="container">
+        <section class="featured-categories">
+            <h2>أقسام المتجر</h2>
+            <div class="grid">
+                <div class="card">
+                    <div>
+                        <span class="sub-badge summer-badge">صيفي</span>
+                        <h3>ملابس أطفال صيفية</h3>
+                        <p>ملابس قطنية خفيفة ومريحة لأجواء الصيف.</p>
+                    </div>
+                    <a href="categories.html#clothes-summer" class="btn">عرض القسم</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <span class="sub-badge winter-badge">شتوي</span>
+                        <h3>ملابس أطفال شتوية</h3>
+                        <p>أطقم دافئة وناعمة لحماية الطفل في البرد.</p>
+                    </div>
+                    <a href="categories.html#clothes-winter" class="btn">عرض القسم</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>أسرة أطفال</h3>
+                        <p>أسرة مريحة وآمنة لنوم هادئ لطفلك.</p>
+                    </div>
+                    <a href="categories.html#beds" class="btn">عرض القسم</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>عربات أطفال</h3>
+                        <p>عربات أطفال عملية وعصرية للتنقل بسهولة.</p>
+                    </div>
+                    <a href="categories.html#strollers" class="btn">عرض القسم</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>مستلزمات الأم</h3>
+                        <p>رضاعات، حاملات أطفال، وكل ما تحتاجه الأم.</p>
+                    </div>
+                    <a href="categories.html#mom-supplies" class="btn">عرض القسم</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>الحضائن والقماط لحديثي الولادة</h3>
+                        <p>حضائن وقماط ناعمة وآمنة لحديثي الولادة.</p>
+                    </div>
+                    <a href="categories.html#incubators-swaddles" class="btn">عرض القسم</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-categories">
+            <h2>منتجات مختارة</h2>
+            <div class="grid" id="featured-products"></div>
+        </section>
+    </div>
+
+    <!-- نافذة سلة التسوق -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-bag"></i> سلة التسوق</h3>
+                <button class="close-cart" onclick="toggleCart()">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>المجموع الكلي:</span>
+                    <span id="cart-total">0 د.ع</span>
+                </div>
+                <button class="checkout-btn" onclick="checkoutWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> إتمام الطلب عبر واتساب
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>متجر New Baby - جميع الحقوق محفوظة &copy; 2026</p>
+        <div class="social-links">
+            <a href="https://wa.me/9647728881440" target="_blank" class="social-btn whatsapp">
+                <i class="fab fa-whatsapp"></i> تواصل عبر الواتساب
+            </a>
+            <a href="https://www.instagram.com/new_baby0" target="_blank" class="social-btn instagram">
+                <i class="fab fa-instagram"></i> تابعنا على إنستغرام
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

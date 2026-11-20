@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Baby - الأصناف والبضائع</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">البصرة_شارع السعدي</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="categories.html">الأصناف والبضائع</a></li>
+                <li>
+                    <button class="cart-btn" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i> السلة
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">أصناف وبضائع متجر New Baby</h1>
+        <p class="page-subtitle">ابحث عن منتج أو اضغط على أي قسم لعرض البضائع</p>
+
+        <!-- شريط البحث وزر فتح/طي الكل -->
+        <div class="tools-bar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="ابحث عن منتج (مثلاً: رضاعات، سرير، شتوي...)" oninput="searchProducts()">
+            </div>
+            <button class="toggle-all-btn" id="toggle-all-btn" onclick="toggleAllSections()">
+                <i class="fas fa-folder-open"></i> فتح كل الأقسام
+            </button>
+        </div>
+
+        <!-- القائمة العمودية للأقسام -->
+        <div class="vertical-categories">
+
+            <!-- 1: ملابس أطفال - صيفي -->
+            <div id="clothes-summer" class="accordion-item">
+                <button class="accordion-header" onclick="toggleSection('clothes-summer')">
+                    <div class="accordion-title-group">
+                        <i class="fas fa-sun"></i>
+                        <span>ملابس أطفال (صيفي)</span>
+                        <span class="item-count-badge" id="count-clothes-summer">3 خيارات</span>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-body">
+                    <div class="grid" id="clothes-summer-grid"></div>
+                </div>
+            </div>
+
+            <!-- 2: ملابس أطفال - شتوي -->
+            <div id="clothes-winter" class="accordion-item">
+                <button class="accordion-header" onclick="toggleSection('clothes-winter')">
+                    <div class="accordion-title-group">
+                        <i class="fas fa-snowflake"></i>
+                        <span>ملابس أطفال (شتوي)</span>
+                        <span class="item-count-badge" id="count-clothes-winter">3 خيارات</span>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-body">
+                    <div class="grid" id="clothes-winter-grid"></div>
+                </div>
+            </div>
+
+            <!-- 3: أسرة أطفال -->
+            <div id="beds" class="accordion-item">
+                <button class="accordion-header" onclick="toggleSection('beds')">
+                    <div class="accordion-title-group">
+                        <i class="fas fa-bed"></i>
+                        <span>أسرة أطفال</span>
+                        <span class="item-count-badge" id="count-beds">3 خيارات</span>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-body">
+                    <div class="grid" id="beds-grid"></div>
+                </div>
+            </div>
+
+            <!-- 4: عربات أطفال -->
+            <div id="strollers" class="accordion-item">
+                <button class="accordion-header" onclick="toggleSection('strollers')">
+                    <div class="accordion-title-group">
+                        <i class="fas fa-baby-carriage"></i>
+                        <span>عربات أطفال</span>
+                        <span class="item-count-badge" id="count-strollers">3 خيارات</span>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-body">
+                    <div class="grid" id="strollers-grid"></div>
+                </div>
+            </div>
+
+            <!-- 5: مستلزمات الأم -->
+            <div id="mom-supplies" class="accordion-item">
+                <button class="accordion-header" onclick="toggleSection('mom-supplies')">
+                    <div class="accordion-title-group">
+                        <i class="fas fa-heart"></i>
+                        <span>مستلزمات الأم (رضاعات، حاملة أطفال، إلخ)</span>
+                        <span class="item-count-badge" id="count-mom-supplies">3 خيارات</span>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-body">
+                    <div class="grid" id="mom-supplies-grid"></div>
+                </div>
+            </div>
+
+            <!-- 6: الحضائن والقماط لحديثي الولادة -->
+            <div id="incubators-swaddles" class="accordion-item">
+                <button class="accordion-header" onclick="toggleSection('incubators-swaddles')">
+                    <div class="accordion-title-group">
+                        <i class="fas fa-baby"></i>
+                        <span>الحضائن والقماط لحديثي الولادة</span>
+                        <span class="item-count-badge" id="count-incubators-swaddles">3 خيارات</span>
+                    </div>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-body">
+                    <div class="grid" id="incubators-swaddles-grid"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- نافذة سلة التسوق -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-bag"></i> سلة التسوق</h3>
+                <button class="close-cart" onclick="toggleCart()">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>المجموع الكلي:</span>
+                    <span id="cart-total">0 د.ع</span>
+                </div>
+                <button class="checkout-btn" onclick="checkoutWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> إتمام الطلب عبر واتساب
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- إشعار الإضافة للسلة -->
+    <div class="toast-notification" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">تمت الإضافة إلى السلة</span>
+        <button class="toast-open-cart" onclick="toggleCart(true)">عرض السلة</button>
+    </div>
+
+    <!-- نافذة تكبير صورة المنتج -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="fullProductImage" alt="صورة المنتج كاملة">
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+
+    <footer>
+        <p>متجر New Baby - جميع الحقوق محفوظة &copy; 2026</p>
+        <div class="social-links">
+            <a href="https://wa.me/9647728881440" target="_blank" class="social-btn whatsapp">
+                <i class="fab fa-whatsapp"></i> تواصل عبر الواتساب
+            </a>
+            <a href="https://www.instagram.com/new_baby0" target="_blank" class="social-btn instagram">
+                <i class="fab fa-instagram"></i> تابعنا على إنستغرام
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
